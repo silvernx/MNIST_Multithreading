@@ -16,7 +16,6 @@ def train_nets(inputs, outputs, training_rate, epochs, batch_size, outer_min,
     while minimum > outer_min:
         build_networks(layers, activations, d_activations, cost, d_cost, num_nets, random_limit)
         for network in networks:
-            print("barrier1")
             output = network.train(inputs, outputs, training_rate, epochs,
                     batch_size, True)
             if output < minimum:

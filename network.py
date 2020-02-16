@@ -105,7 +105,6 @@ class FeedForwardNetwork:
             inputs, outputs = zip(*data)
             total_error = 0
             for j in range(len(inputs)):
-                print(j)
                 output = self.prop_to_and_fro(inputs[j], outputs[j], training_rate)
                 if verbose and (i - 1) % 100 == 0:
                     print(inputs[j], output)

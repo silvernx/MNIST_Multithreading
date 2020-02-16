@@ -1,4 +1,4 @@
-from network import *
+from network
 from main_thread import *
 import pickle
 import gzip
@@ -70,19 +70,19 @@ def main():
     training_inputs, training_results = zip(*training_data)
     Validation_inputs, Validation_results = zip(*validation_data)
     print(len(Validation_inputs))
-    training_inputs_small=training_inputs[0:100]
-    training_results_small=training_results[0:100]
+    training_inputs_small=training_inputs[0:500]
+    training_results_small=training_results[0:500]
     random_limit = 20
-    batch_size = 5
+    batch_size = 10
     outer_min = 1
     training_rate = 1
-    architecture = [784, 5, 5, 10]
-    num_nets = 1
+    architecture = [784, 20, 15, 10]
+    num_nets = 10
     final = manager.train_nets(training_inputs_small, training_results_small, training_rate, 1, batch_size, outer_min, random_limit, architecture,
             [sigmoid] * 3, [d_sigmoid] * 3, squared_error, d_squared_error, num_nets)
     print("Start Deep Training")
-    training_inputs_medium=training_inputs[0:1000]
-    training_results_medium=training_results[0:1000]
+    training_inputs_medium=training_inputs[0:10000]
+    training_results_medium=training_results[0:10000]
     training_rate = 1
     #inputs = [[0,0],[1,0],[0,1],[1,1]]
     #outputs = [[0],[1],[1],[0]]
@@ -90,10 +90,10 @@ def main():
     d_f_activations = [d_sigmoid] * 3
     f_cost = squared_error
     d_f_cost = d_squared_error
-    batch_size = 20
+    batch_size = 50
     epochs = 5
-    num_threads = 5
-    master_thread = main_thread(architecture, f_activations, d_f_activations, f_cost, d_f_cost, random_limit, num_threads, training_inputs_medium, training_results_medium, training_rate, batch_size, epochs, final)
+    num_threads = 10
+    master_thread = main_thread(architecture, f_activations, d_f_activations, f_cost, d_f_cost, random_limit, num_threads, training_inputs_small, training_results_small, training_rate, batch_size, epochs, final)
     master_thread.start()
     master_thread.join()
 
@@ -103,7 +103,7 @@ def main():
         test_input=Validation_inputs[i]
         test_output=Validation_results[i]
         ret = final.prop(test_input)
-        final.clear()
+        network.final.clear()
         max = 0
         for j in range(10):
             if ret[j] > max:
