@@ -50,7 +50,7 @@ class worker_thread(threading.Thread):
                     weight_index += 1
 
     def train(self):
-        start = int(self.batch_number * len(self.inputs) / self.batch_size + self.batch_size / self.num_threads * self.threadID)
+        start = int(self.batch_number * self.batch_size + self.batch_size / self.num_threads * self.threadID)
         for i in range(int(self.batch_size / self.num_threads)):
             self.network_copy.prop_to_and_fro(self.inputs[i + start], self.outputs[i + start], self.training_rate)
 
