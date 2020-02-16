@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Connection	node.py	/^class Connection:$/;"	c
+FeedForwardNetwork	network.py	/^class FeedForwardNetwork:$/;"	c
+Node	node.py	/^class Node:$/;"	c
+__init__	network.py	/^    def __init__(self, architecture, f_activations, d_f_activations, f_cost, d_f_cost, random_limit):$/;"	m	class:FeedForwardNetwork
+__init__	node.py	/^    def __init__(self, f_activation, d_f_activation, random_limit):$/;"	m	class:Node
+__init__	node.py	/^    def __init__(self, weight):$/;"	m	class:Connection
+__init__	thread.py	/^    def __init__(self, threadID, inputs, outputs, network_copy, training_rate):$/;"	m	class:worker_thread
+backprop	network.py	/^    def backprop(self, y, y_hat, training_rate):$/;"	m	class:FeedForwardNetwork
+backprop	node.py	/^    def backprop(self, is_last_layer, d_error, training_rate):$/;"	m	class:Node
+build_networks	manager.py	/^def build_networks(layers, activations, d_activations, cost, d_cost, num_nets,$/;"	f
+copy	network.py	/^    def copy(self):$/;"	m	class:FeedForwardNetwork
+create_children	node.py	/^    def create_children(self, children):$/;"	m	class:Node
+d_itself	network.py	/^def d_itself(x):$/;"	f
+d_relu	network.py	/^def d_relu(x):$/;"	f
+d_sigmoid	network.py	/^def d_sigmoid(x):$/;"	f
+d_squared_error	network.py	/^def d_squared_error(y_hat, y):$/;"	f
+errors	manager.py	/^errors = []$/;"	v
+itself	network.py	/^def itself(x):$/;"	f
+main	driver.py	/^def main():$/;"	f
+networks	manager.py	/^networks = []$/;"	v
+prop	network.py	/^    def prop(self, inpt):$/;"	m	class:FeedForwardNetwork
+prop	node.py	/^    def prop(self):$/;"	m	class:Node
+prop_to_and_fro	network.py	/^    def prop_to_and_fro(self, x, y, training_rate):$/;"	m	class:FeedForwardNetwork
+relu	network.py	/^def relu(x):$/;"	f
+run	thread.py	/^    def run(self):$/;"	m	class:worker_thread
+sigmoid	network.py	/^def sigmoid(x):$/;"	f
+squared_error	network.py	/^def squared_error(y_hat, y):$/;"	f
+train	network.py	/^    def train(self, inputs, outputs, training_rate, epochs, batch_size, verbose):$/;"	m	class:FeedForwardNetwork
+train	thread.py	/^    def train(self):$/;"	m	class:worker_thread
+train_nets	manager.py	/^def train_nets(inputs, outputs, training_rate, epochs, batch_size, outer_min,$/;"	f
+update	network.py	/^    def update(self, training_rate, batch_size):$/;"	m	class:FeedForwardNetwork
+update	node.py	/^    def update(self, batch_size):$/;"	m	class:Node
+worker_thread	thread.py	/^class worker_thread(threading.thread):$/;"	c
