@@ -1,4 +1,4 @@
-import network
+from network import *
 import manager
 import thread
 import threading

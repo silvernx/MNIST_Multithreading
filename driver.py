@@ -1,4 +1,3 @@
-from network import *
 from main_thread import *
 import pickle
 import gzip
@@ -91,7 +90,7 @@ def main():
     f_cost = squared_error
     d_f_cost = d_squared_error
     batch_size = 50
-    epochs = 5
+    epochs = 2
     num_threads = 10
     master_thread = main_thread(architecture, f_activations, d_f_activations, f_cost, d_f_cost, random_limit, num_threads, training_inputs_small, training_results_small, training_rate, batch_size, epochs, final)
     master_thread.start()
@@ -103,7 +102,7 @@ def main():
         test_input=Validation_inputs[i]
         test_output=Validation_results[i]
         ret = final.prop(test_input)
-        network.final.clear()
+        final.clear()
         max = 0
         for j in range(10):
             if ret[j] > max:
