@@ -1,4 +1,4 @@
-from network
+from network import *
 from main_thread import *
 import pickle
 import gzip
