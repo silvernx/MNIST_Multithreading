@@ -102,7 +102,10 @@ def main():
         test_input=Validation_inputs[i]
         test_output=Validation_results[i]
         ret = final.prop(test_input)
-        final.clear()
+        for layer in final.layers:
+            for neuron in layer:
+                neuron.input = 0
+                neuron.activation = 0
         max = 0
         for j in range(10):
             if ret[j] > max:
