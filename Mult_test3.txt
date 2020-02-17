@@ -1,0 +1,16 @@
+10000
+Couldn't find anything
+[0.11014526] 20
+Start Deep Training
+Epoch #0
+Epoch #1
+Epoch #2
+Epoch #3
+Epoch #4
+Epoch #5
+Epoch #6
+Epoch #7
+Epoch #8
+Epoch #9
+Epoch #10
+Epoch #11
