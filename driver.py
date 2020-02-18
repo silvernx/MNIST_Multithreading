@@ -69,8 +69,8 @@ def main():
     training_inputs, training_results = zip(*training_data)
     Validation_inputs, Validation_results = zip(*validation_data)
     print(len(Validation_inputs))
-    training_inputs_small=training_inputs[0:1000]
-    training_results_small=training_results[0:1000]
+    training_inputs_small=training_inputs[0:10]
+    training_results_small=training_results[0:10]
     random_limit = 20
     batch_size = 10
     outer_min = 1
@@ -80,8 +80,8 @@ def main():
     final = manager.train_nets(training_inputs_small, training_results_small, training_rate, 1, batch_size, outer_min, random_limit, architecture,
             [sigmoid] * 3, [d_sigmoid] * 3, squared_error, d_squared_error, num_nets)
     print("Start Deep Training")
-    training_inputs_medium=training_inputs[0:10000]
-    training_results_medium=training_results[0:10000]
+    training_inputs_medium=training_inputs[0:10]
+    training_results_medium=training_results[0:10]
     training_rate = 1
     #inputs = [[0,0],[1,0],[0,1],[1,1]]
     #outputs = [[0],[1],[1],[0]]
