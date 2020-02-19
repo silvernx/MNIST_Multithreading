@@ -69,14 +69,14 @@ def main():
     training_inputs, training_results = zip(*training_data)
     Validation_inputs, Validation_results = zip(*validation_data)
     print(len(Validation_inputs))
-    training_inputs_small=training_inputs[0:10]
-    training_results_small=training_results[0:10]
-    random_limit = 20
-    batch_size = 10
+    training_inputs_small=training_inputs[0:20000]
+    training_results_small=training_results[0:20000]
+    random_limit = 10
+    batch_size = 5
     outer_min = 1
     training_rate = 1
-    architecture = [784, 20, 15, 10]
-    num_nets = 1
+    architecture = [784, 30, 20, 10]
+    num_nets = 20
     final = manager.train_nets(training_inputs_small, training_results_small, training_rate, 1, batch_size, outer_min, random_limit, architecture,
             [sigmoid] * 3, [d_sigmoid] * 3, squared_error, d_squared_error, num_nets)
     print("Start Deep Training")
@@ -89,7 +89,7 @@ def main():
     d_f_activations = [d_sigmoid] * 3
     f_cost = squared_error
     d_f_cost = d_squared_error
-    batch_size = 1000
+    batch_size = 20
     epochs = 50
     num_threads = 10
     master_thread = main_thread(architecture, f_activations, d_f_activations, f_cost, d_f_cost, random_limit, num_threads, training_inputs, training_results, training_rate, batch_size, epochs, final)
