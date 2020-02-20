@@ -41,8 +41,8 @@ class main_thread(threading.Thread):
             np.random.shuffle(data)
             self.inputs, self.outputs = zip(*data)
             print('Epoch #' + str(i))
-            if (i+1) % 10 == 0:
-                self.training_rate *= 5
+            #if (i+1) % 10 == 0:
+            #    self.training_rate *= 5
             for j in range(len(self.inputs) // self.batch_size):
                 self.main_thread_event.clear()
                 self.main_thread_event.wait()

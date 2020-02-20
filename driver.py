@@ -71,12 +71,12 @@ def main():
     print(len(Validation_inputs))
     training_inputs_small=training_inputs[0:20000]
     training_results_small=training_results[0:20000]
-    random_limit = 10
-    batch_size = 5
+    random_limit = 20
+    batch_size = 10
     outer_min = 1
     training_rate = 1
     architecture = [784, 30, 20, 10]
-    num_nets = 20
+    num_nets = 50
     final = manager.train_nets(training_inputs_small, training_results_small, training_rate, 1, batch_size, outer_min, random_limit, architecture,
             [sigmoid] * 3, [d_sigmoid] * 3, squared_error, d_squared_error, num_nets)
     print("Start Deep Training")
@@ -92,12 +92,13 @@ def main():
     batch_size = 20
     epochs = 50
     num_threads = 10
-    master_thread = main_thread(architecture, f_activations, d_f_activations, f_cost, d_f_cost, random_limit, num_threads, training_inputs, training_results, training_rate, batch_size, epochs, final)
-    master_thread.start()
-    master_thread.join()
-    print("Start Validation Tests")
-    Validation_cnt = 0
-    for i in range(1000):
+    for oo in range(epochs):
+      master_thread = main_thread(architecture, f_activations, d_f_activations, f_cost, d_f_cost, random_limit, num_threads, training_inputs, training_results, training_rate, batch_size, 1, final)
+      master_thread.start()
+      master_thread.join()
+      print("Start Validation Tests")
+      Validation_cnt = 0
+      for i in range(1000):
         test_input=Validation_inputs[i]
         test_output=Validation_results[i]
         ret = final.prop(test_input)
@@ -112,10 +113,9 @@ def main():
                 opt=j
         if opt == test_output:
             Validation_cnt +=1
-        print(opt, test_output)
-    print("Correct Answer =", Validation_cnt)
-    print("Success Rate:", Validation_cnt/1000)
-
+            #print(opt, test_output)
+        print("Correct Answer =", Validation_cnt)
+        print("Success Rate:", Validation_cnt/1000)
 
 if __name__ == '__main__':
     main()
